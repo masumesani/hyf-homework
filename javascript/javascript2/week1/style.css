@@ -1,0 +1,13 @@
+.section{
+    border: solid gray 1px;
+    margin: 5px ;
+    padding: 4px 4px 4px 4px;
+    background-color: blueviolet;
+}
+.label, .value{
+    display: inline;
+
+}
+.label{
+ font-weight: 700;   
+}

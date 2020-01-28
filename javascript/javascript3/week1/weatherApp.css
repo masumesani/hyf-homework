@@ -1,0 +1,21 @@
+body{
+    padding: 0px;
+    margin: 0%;
+    background-color: blanchedalmond;
+}
+
+#background-img{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    padding: 0 0 0 0;
+
+}
+#city-app{
+    background-color:blanchedalmond;
+    padding: 1em 1em 1em 1em;
+
+   
+}

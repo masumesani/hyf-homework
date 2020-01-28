@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    list-style-type: none;
+}
+
+
+body{
+    height: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  font-family: "sans-serif";
+  align-items: center;
+  -webkit-align-items: center;
+  font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+}
+
+.h1, .h2, .h3 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    margin: 2em;
+}
+
+.personal-info{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    padding-right: 2em;
+    border-right: solid;
+    border-width: thin;
+}
+
+
+#contact i{
+    margin-left: 0.5em;
+}
+
+#contact a i{
+    color: #333;
+    font-size:2em;
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+}
+
+.personal-info .pic img{
+    width: 10em;
+    height: 10em;
+    -webkit-filter: grayscale(90%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(90%);
+}
+
+.qualities{
+    flex:2;
+    padding-left: 2em;
+}
+.qualities, .description, .general li {
+    list-style-position: inside;
+    text-indent: -1em;
+    }
+#work span{
+    font-size: 0.7em;
+    font-style: italic;
+}
+#education span{
+    font-size: 0.7em;
+    font-style: italic;  
+}
+
+#education li:nth-child(odd){
+    font-weight: bold;
+}
+
+#education li:nth-child(even){
+    margin-left: 1em;
+}

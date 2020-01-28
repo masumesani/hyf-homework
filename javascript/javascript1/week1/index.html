@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .section {
+            border: solid;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <h1>Age-ify</h1>
+        <label for="yearOfBirth">Year Of Birth</label>
+        <input id="yearOfBirth" type="text">
+        <label for="yearFuture">Year In Future</label>
+        <input id="yearFuture" type="text">
+        <button onclick="calcAge()">Calculate</button>
+        <p id="age-ify"></p>
+
+    </div>
+    <div class="section">
+        <h1>Dog-age</h1>
+        <label for="dogYearOfBirth">Dog's Year Of Birth</label>
+        <input id="dogYearOfBirth" type="text">
+        <label for="dogYearFuture">Dog's Year In Future</label>
+        <input id="dogYearFuture" type="text">
+        <label for="shouldShowResultInDogYears">should Show Result In Dog Years</label>
+        <input id="shouldShowResultInDogYears" type="checkbox">
+        <button onclick="calcDogAge()">Calculate</button>
+        <p id="dog-age"></p>
+    </div>
+    <div class="section">
+        <h1>Housey-pricy</h1>
+        <label for="customer">Customer</label>
+        <input id="customer" type="text">
+        <label for="wide">Width</label>
+        <input id="wide" type="text">
+        <label for="deep">Depth</label>
+        <input id="deep" type="text">
+        <label for="high">Height</label>
+        <input id="high" type="text">
+        <label for="gardenSizeInM2">Garden Size In M2</label>
+        <input id="gardenSizeInM2" type="text">
+        <label for="houseOffer">House Offer</label>
+        <input id="houseOffer" type="text">
+        <button onclick="calcHouseInM3()">Calculate</button>
+        <p id="housey-pricy"></p>
+    </div>
+    <div class="section">
+        <h1>Name-generator</h1>
+        <button onclick="nameGenerator()">Let's go</button>
+        <p id="name-generator"></p>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+#score-board{
+    margin-top: 30px;
+    display: flex
+}
+
+#score-board div{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px;
+    width:50%;
+}
+
+#score-board div *{
+    align-self: center;
+}
+
+#inputs{
+    display:flex;
+    flex-direction: column;
+}
+
+#inputs *{
+    margin: 10px;
+    align-self: center;
+}
+
+#inputs input{
+    width:300px;
+}
+
+#inputs button{
+    width:200px;
+}
+
+canvas{
+    position: absolute;
+    overflow: hidden;
+}
+
