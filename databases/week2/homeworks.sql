@@ -5,7 +5,6 @@ use lessonone;
 Insert into task (title, description, created, updated, due_date, status_id, user_id)
 values('Doing homeworks', "You shouldn't procastinate that much", '2020-02-03', '2020-02-03', '2020-02-06', 1, 10 );
 -- Change the title of a task
-use lesonone;
 UPDATE task
 SET title = 'watering plants'
 WHERE user_id = 1;
@@ -41,4 +40,39 @@ alter table class drop column status2;
 
 --- Part 3: More queries
 
---
+-- 
+--Get all the tasks assigned to users whose email ends in @spotify.com
+use hyf_lesson2;
+-- we could have used * but we choose to select only title and description of the task
+select  task.title,task.description,user_task.user_id, user.email
+from task 
+inner join user_task on user_task.task_id = task.id 
+inner join user on user.id = user_id
+where email regexp "@spotify.com$"  
+
+-- Get all the tasks for 'Donald Duck' with status 'Not started'
+
+select task.title,task.description,user.name,status.name
+from task
+inner join user_task on user_task.task_id = task.id
+inner join user on user_task.user_id = user.id
+inner join status on status.id = task.status_id
+where user.name = 'Donald Duck' and status.name = 'Not started'
+
+--Get all the tasks for 'Maryrose Meadows' that were created in september (hint: month(created)=month_number)
+select *,user.name
+from task
+inner join user_task on user_task.task_id = task.id
+inner join user on user.id = user_task.user_id
+where user.name = 'Maryrose Meadows' and month(task.created)= 9
+
+-- Find how many tasks where created in each month, e.g. how many tasks were created in october, how many tasks were created in november, etc. (hint: use group by)
+select month(created),count(*) from task
+group by month(created)
+
+ 
+
+
+
+
+
