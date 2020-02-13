@@ -1,0 +1,5 @@
+/*
+mongoimport -d todo -c status --file status.json --jsonArray
+mongoimport -d todo -c user --file user.json --jsonArray
+mongoimport -d todo -c task --file task.json --jsonArray
+*/
