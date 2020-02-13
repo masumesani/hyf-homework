@@ -1,5 +1,22 @@
-/*
+// Create a database "Todo"
+// inside mongo
+use 'todo'
+
+// Insert the exported data into the related collections
+// from cli
 mongoimport -d todo -c status --file status.json --jsonArray
 mongoimport -d todo -c user --file user.json --jsonArray
 mongoimport -d todo -c task --file task.json --jsonArray
-*/
+
+// Find the length of each collection using db."collection_name".find().length()
+// inside mongo
+db.getCollection('user').find().length()//11
+
+// Return the first document of tasks collection using .limit()
+db.getCollection('task').find().limit(1)
+
+// Return the third document of the task collection using .skip() and .limit()
+db.getCollection('task').find().skip(2).limit(1)
+
+// Find the documents which "description" is "learning Danish during physical working" using .find({condition})
+db.getCollection('task').find({"description":"learning Danish during physical working"})
