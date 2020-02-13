@@ -11,7 +11,7 @@ create table Meal(
 	title varchar(30) NOT NULL,
 	description text, 
 	location varchar(50),
-	serving_time datetime,
+	`when` datetime,
 	max_reservation INT,
     price decimal NOT NULL,
     created_date datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -49,11 +49,11 @@ select * from Meal;
 insert into Meal 
 values(default, ' Zereshk Polo','Barberry Rice','Copenhagenmm',null,null,5,null)
 -- Get a meal with any id, fx 1
-select * from Meal where Meal.id = 2;
+select * from Meal where Meal.id = 1;
 --Update a meal with any id, fx 1. Update any attribute fx the title or multiple attributes
 UPDATE Meal 
 SET title = 'Fesenjan', description= 'Pomegranate Walnut Stew', location = 'Copenhagen',
-serving_time = '2020-02-02',
+`when` = '2020-02-02',
 max_reservation = 5,
 price = 125
 where id=1;
@@ -62,23 +62,24 @@ update Meal
 Set title= 'Bademjan',
 description='Eggplant And Tomato Stew',
 max_reservation = 4,
-serving_time = '2020-03-10'
-where id = 2;
+`when` = '2020-03-10'
+where id = 1;
 --Delete a meal with any id, fx 1
 delete from Meal 
-where id=3 or id =4;
+where id=1 or id =4;
 
 
 --Reservation
 --Get all reservations
 select * from Reservation;
 --Add a new reservation
+insert into Reservation
 values(default,4,2,default);
 select * from Reservation;
 
 --Get a reservation with any id, fx 1
 select * from Reservation
-where id =4; 
+where id =1; 
 --Update a reservation with any id, fx 1. Update any attribute fx the title or multiple attributes
 update Reservation 
 set number_of_guests= 3, meal_id=1
@@ -86,7 +87,7 @@ where id= 1;
 
 --Delete a reservation with any id, fx 1
 delete from Reservation 
-where id =10;
+where id =1;
 
 
 -- Review
@@ -97,15 +98,15 @@ insert into Review
 values(default, 'yummy','amazing',1,4,default);
 -- Get a review with any id, fx 1
 select * from Review 
-where id =2;
+where id =1;
 -- Update a review with any id, fx 1. Update any attribute fx the title or multiple attributes
 update Review
 set title = 'could be better',
 meal_id = 1
-where id =2;
+where id =1;
 -- Delete a review with any id, fx 1
 delete from Review 
-where id =3;
+where id =1;
 
 -- Additional queries
 
