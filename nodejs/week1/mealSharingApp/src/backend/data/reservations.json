@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "name": "Benjamin Hughes",
+      "email": "benjamin@hughes.dk",
+      "mealId": 1
+    },
+    {
+        "id": 2,
+        "name": "Masume Sani",
+        "email": "Masume@Sani.dk",
+        "mealId": 7
+      },
+      {
+        "id": 3,
+        "name": "Morteza Kasravi",
+        "email": "moeteza@kasravi.dk",
+        "mealId": 6
+      },
+      {
+          "id": 4,
+          "name": "Masi Sani",
+          "email": "masi@sani.dk",
+          "mealId": 3
+        },
+        {
+            "id": 5,
+            "name": "Behnam Ganji",
+            "email": "beh@ganji.dk",
+            "mealId": 5
+          },
+          {
+              "id": 6,
+              "name": "Sediq Qorbani",
+              "email": "sediq@qorbani.dk",
+              "mealId": 1
+            } 
+  ]
