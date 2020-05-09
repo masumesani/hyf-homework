@@ -1,21 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Root from './Components/Root';
-import Context from './DefaultContext';
+import GitHubSearchProvider from './Components/GitHubSearchProvider';
 
 function App() {
-  const [searchToken, setSearchToken] = useState('');
-  const [status, setStatus] = useState('');
-  const [searchType, setSearchType] = useState('namesearch');
+
   return (
     <div className="App">
-      <Context.Provider value={{
-        searchToken, setSearchToken,
-        status, setStatus,
-        searchType, setSearchType
-      }}>
+      <GitHubSearchProvider>
         <Root />
-      </Context.Provider>
+      </GitHubSearchProvider>
     </div>
   );
 }

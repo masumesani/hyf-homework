@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Context from '../DefaultContext'
 
-const SearchInput = () => {
+const SearchType = () => {
     const { setSearchType } = useContext(Context);
     return (
         <div style={{ marginBottom: '20px' }}>
@@ -13,4 +13,4 @@ const SearchInput = () => {
         </div>
     )
 }
-export default SearchInput;
+export default SearchType;
