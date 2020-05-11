@@ -57,7 +57,16 @@ class MyTodoList extends Component {
         { ...todo, editing: true } : todo)
     })
   }
+  onChange = (str) => {
+    this.setState({
+      todoList: this.state.todoList.map(
+        todo => todo.editing ? { ...todo, title: str } : todo)
+    })
+  };
+
+
   onSave = (id, todoText) => {
+    console.log(todoText)
     if (todoText === "") {
       this.setState({
         todoList: this.todoList.map(todo => todo.id === id ?
@@ -81,6 +90,7 @@ class MyTodoList extends Component {
               <TodoListItem
                 key={todo.id}
                 todo={todo}
+                onChange={this.onChange}
                 onToggle={this.onToggle}
                 onDelete={this.onDelete}
                 onEditStarted={this.onEditStarted}

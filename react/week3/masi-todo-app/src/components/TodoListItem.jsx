@@ -8,23 +8,25 @@ import PropTypes from 'prop-types';
 class TodoListItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { todoText: props.todo.title };
-
   }
   render() {
     return (
       this.props.todo.editing ? <div>
         <TextField variant="outlined"
-          value={this.state.todoText}
+          value={this.props.todo.title}//
           onChange={(event) => {
-            this.setState({ todoText: event.target.value });
+            this.props.onChange(event.target.value)
+
           }}
           style={{ marginRight: 10 }}
           label="What is the plan?"
           size="small"
           className="mt-1" />
         <IconButton
-          onClick={() => { this.props.onSave(this.props.todo.id, this.state.todoText) }}
+          onClick={() => {
+            console.log(this.props.todo)
+            this.props.onSave(this.props.todo.id, this.props.todo.title)
+          }}//
         > <Add /></IconButton>
       </div> :
         <div className="container">
