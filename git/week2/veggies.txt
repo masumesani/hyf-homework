@@ -3,3 +3,5 @@ Chilli peppers
 Celery
 Carrots
 Spring onions
+Eggplant
+Beetroot
