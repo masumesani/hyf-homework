@@ -1,24 +1,20 @@
 const fs = require('fs');
-
-
 const characterChecker = str => {
     if (str.length === 0) {
         return 0
     }
-    let characterMaker = str.split("");
-    let evaluateLength = str.length;
-    let upperCaseAmount = characterMaker.filter(x => x == x.toUpperCase());
-    let percentageOfUpperCase = upperCaseAmount.length * 100 / evaluateLength;
+    const characterMaker = str.split("");
+    const evaluateLength = str.length;
+    const upperCaseAmount = characterMaker.filter(x => x == x.toUpperCase());
+    const percentageOfUpperCase = upperCaseAmount.length * 100 / evaluateLength;
     return percentageOfUpperCase
 }
-
 class Email {
     constructor(subject, body) {
         this.subject = subject;
         this.body = body;
     }
 }
-
 class SpamDetector {
     constructor(extraWords, extraRules) {
         this.rules = [
@@ -37,7 +33,6 @@ class SpamDetector {
                 name: "empty string",
                 priority: 0,
                 func: (str) => (!str || str.length === 0)
-
             }
         ];
         this.rules = [...this.rules, ...extraRules.map(f => {
@@ -50,34 +45,25 @@ class SpamDetector {
         this.badWords = [...this.badWords, ...extraWords];
     }
 
-    evaluateUpperCaseChar(str) {
-
-        if (characterChecker(str) >= 60) {
-            return true
-        }
-    }
+    evaluateUpperCaseChar = (str) => characterChecker(str) >= 60
 
     checkForBadWords(str, self) {
-
         return self.badWords.some(word =>
             str.toLowerCase().includes(word)
         )
     }
-
     ruleChecker(email, context, property) {
-        let self = this;
-        let res = this.rules
+        const self = this;
+        const res = this.rules
             .filter(rule => !rule.context || rule.context === context)
-            .sort((a, b) => 
-            (a.priority === undefined ? Infinity : a.priority)  
-            > (b.priority === undefined ? Infinity : b.priority) ? 1 : -1)
+            .sort((a, b) =>
+                (a.priority === undefined ? Infinity : a.priority)
+                    > (b.priority === undefined ? Infinity : b.priority) ? 1 : -1)
             .find(rule =>
                 rule.func(email[property], self));
         return res ? res.name || "Unknown Rule" : null;
 
     }
-
-
     isSpam(email, shouldProvideReason) {
         let res = this.ruleChecker(email, "subject", "subject")
         if (res) {
@@ -89,20 +75,16 @@ class SpamDetector {
         }
         return shouldProvideReason ? null : false
     }
-
 }
-
 const spamDetector = new SpamDetector(["ویاگرا"], [f => f.length > 40000]);
-
-
-const buildResult= result=>{
-    if(result){
+const buildResult = result => {
+    if (result) {
         return `email is spam because ${result}`
     }
 }
 
-const emailSampleDB =JSON.parse(fs.readFileSync(__dirname+"/email.json"));
-const emails = emailSampleDB.map(email =>new Email(email.subject,email.content))
+const emailSampleDB = JSON.parse(fs.readFileSync(__dirname + "/email.json"));
+const emails = emailSampleDB.map(email => new Email(email.subject, email.content))
 
-const isSpamResult = emails.map(email =>spamDetector.isSpam(email,true))
-console.log(isSpamResult.map(buildResult).filter(f=>f))
+const isSpamResult = emails.map(email => spamDetector.isSpam(email, true))
+console.log(isSpamResult.map(buildResult).filter(f => f))
